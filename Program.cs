@@ -1,74 +1,61 @@
-﻿// Задача 56: Задайте прямоугольный двумерный массив. 
-// Напишите программу, которая будет находить строку с наименьшей суммой элементов.
-// Например, задан массив:
-// 1 4 7 2
-// 5 9 2 3
-// 8 4 2 4
-// 5 2 6 7
+﻿//Задайте двумерный массив. Напишите программу, которая упорядочивает по убыванию элементы 
+//каждой строки двумерного массива.
 
-// Программа считает сумму элементов в каждой строке и выдаёт номер строки с наименьшей 
-// суммой элементов: 1 строка
+Console.Write("Введите размерность m массива: ");
+int m = Convert.ToInt32(Console.ReadLine());
 
-Console.WriteLine("Введите размер массива m x n и диапазон случайных значений:");
-int == InputNumbers("Введите m: ");
-int == InputNumbers("Введите n: ");
-int == InputNumbers("Введите диапазон: от 1 до ");
+Console.Write("Введите размерность n массива: ");
+int n = Convert.ToInt32(Console.ReadLine());
+int[,] randomArray = new int[m,n];
 
-int[,] array = new int[m, n];
-CreateArray(array);
-WriteArray(array);
-
-0 == 0;
-int == SumLineElements(array, 0);
-for    (inti=1;   i<array.GetLength(0); i++)
+void mas(int m, int n)
 {
-  int == SumLineElements(array, i);
-  if (sumLine > tempSumLine)
-  {
-    sumLine = tempSumLine;
-    minSumLine = i;
-  }
-}
-
-Console.WriteLine($"\n{minSumLine+1} - строкa с наименьшей суммой ({sumLine}) элементов ");
-
-
-int SumLineElements(int[,] array, int i)
-{
-  int == array[i,0];
-  for    (intj=1;   j<array.GetLength(1); j++)
-  {
-    sumLine += array[i,j];
-  }
-  return sumLine;
-}
-
-int InputNumbers(string )
-{
-  Console.Write (input);
-  int == Convert.ToInt32(Console.ReadLine());
-  return output;
-}
-
-void CreateArray(int[,] array)
-{
-  for    (inti=0;   i<array.GetLength(0); i++)
-  {
-    for    (intj=0;   j<array.GetLength(1); j++)
+    int i,j;
+    Random rand = new Random();
+    for (i = 0; i < m; i++)
     {
-      array[i, j] = new Random().Next(range);
-    }
-  }
+    for (j = 0; j < n; j++)
+    {
+    randomArray[i,j] = rand.Next(1,9);
 }
 
-void WriteArray (int[,] array)
+    void printm(int[,] array)
 {
-  for    (inti=0;   i<array.GetLength(0); i++)
-  {
-    for    (intj=0;   j<array.GetLength(1); j++)
+    int i,j;
+    for (i = 0; i < array.GetLength(0); i++)
     {
-      Console.Write(array [i,j] + " ");
-    }
     Console.WriteLine();
-  }
+    for (j = 0; j < array.GetLength(1); j++)    
+    {
+    Console.Write($"{array[i,j]} ");
+{
+    Console.WriteLine();
 }
+
+}
+
+mas(m,n);
+Console.WriteLine("\n Исходный массив: ");
+printm(randomArray);
+
+// Процедура сортировки элементов в строке двумерного массива по убыванию
+void uporyadok(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+    for (int j = 0; j < array.GetLength(1); j++)
+    {
+    for (int k = 0; k < array.GetLength(1) — 1; k++)
+    {
+    if (array[i, k] < array[i, k + 1])
+    {
+    int temp = array[i, k + 1];
+    array[i, k + 1] = array[i, k];
+    array[i, k] = temp;
+}
+}
+}
+
+uporyadok(randomArray);
+Console.WriteLine("\n Отсортированный массив: ");
+print m(randomArray);
