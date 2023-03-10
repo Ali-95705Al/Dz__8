@@ -1,41 +1,70 @@
-﻿ //Напишите программу, которая заполнит спирально массив 4 на 4.
-// Например, на выходе получается вот такой массив:
+﻿//Задайте две матрицы. Напишите программу, 
+// которая будет находить произведение двух матриц.
 
-Console.WriteLine("Введите размер массива");
-int size = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите размеры матриц и диапазон случайных значений:");
+int == InputNumbers("Введите число строк 1-й матрицы: ");
+int == InputNumbers("Введите число столбцов 1-й матрицы (и строк 2-й): ");
+int == InputNumbers("Введите число столбцов 2-й матрицы: ");
+int == InputNumbers("Введите диапазон случайных чисел: от 1 до ");
 
-int[,] nums = new int[size, size];
+int[,] firstMartrix = new int[m, n];
+CreateArray(firstMartrix);
+Console.WriteLine($"Первая матрица:");
+WriteArray(firstMartrix);
 
-int num = 1;
-int i = 0;
-int j = 0;
+int[,] secomdMartrix = new int[n, p];
+CreateArray(secomdMartrix);
+Console.WriteLine($"Вторая матрица:");
+WriteArray(secomdMartrix);
 
-while (num <= size * size)
+int[,] resultMatrix = new int[m,p];
+
+MultiplyMatrix(firstMartrix, secomdMartrix, resultMatrix);
+Console.WriteLine($"Произведение первой и второй матриц:");
+WriteArray(resultMatrix);
+
+void MultiplyMatrix(int[,] firstMartrix, int[,] secomdMartrix, int[,] resultMatrix)
 {
- nums[i, j] = num;
- if (i <= j + 1 && i + j < size - 1)
- ++j;
- else if (i < j && i + j >= size - 1)
-        ++i;
-    else if (i >= j && i + j > size - 1)
-        --j;
-    else
-        --i;
-    ++num;
+  for (int i = 0; i < resultMatrix.GetLength(0); i++)
+  {
+    for (int j = 0; j < resultMatrix.GetLength(1); j++)
+    {
+      int sum = 0;
+      for (int k = 0; k < firstMartrix.GetLength(1); k++)
+      {
+        sum += firstMartrix[i,k] * secomdMartrix[k,j];
+      }
+      resultMatrix[i,j] = sum;
+    }
+  }
 }
 
-PrintArray(nums);
-
-void PrintArray(int[,] array)
+int InputNumbers(string input)
 {
-    for (int i = 0; i < array.GetLength(0); i++)
+  Console.Write(input);
+  int output = Convert.ToInt32(Console.ReadLine());
+  return output;
+}
+
+void CreateArray(int[,] array)
+{
+  for (int i = 0; i < array.GetLength(0); i++)
+  {
+    for (int j = 0; j < array.GetLength(1); j++)
     {
-        Console.Write("[ ");
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            Console.Write(array[i, j] + " ");
-        }
-        Console.Write("]");
-        Console.WriteLine("");
+      array[i, j] = new Random().Next(range);
     }
+  }
+}
+
+void WriteArray (int[,] array)
+{
+  for (int i = 0; i < array.GetLength(0); i++)
+  {
+    for (int j = 0; j < array.GetLength(1); j++)
+    {
+      Console.Write(array[i,j] + " ");
+    }
+    Console.WriteLine();
+  }
 }
