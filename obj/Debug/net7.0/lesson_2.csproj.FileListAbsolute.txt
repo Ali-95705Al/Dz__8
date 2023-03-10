@@ -1,5 +1,0 @@
-C:\Users\all\Desktop\C#\Dz_8\lesson_2\obj\Debug\net7.0\lesson_2.csproj.AssemblyReference.cache
-C:\Users\all\Desktop\C#\Dz_8\lesson_2\obj\Debug\net7.0\lesson_2.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\all\Desktop\C#\Dz_8\lesson_2\obj\Debug\net7.0\lesson_2.AssemblyInfoInputs.cache
-C:\Users\all\Desktop\C#\Dz_8\lesson_2\obj\Debug\net7.0\lesson_2.AssemblyInfo.cs
-C:\Users\all\Desktop\C#\Dz_8\lesson_2\obj\Debug\net7.0\lesson_2.csproj.CoreCompileInputs.cache
